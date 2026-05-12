@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    
+    <!-- === PWA meta === -->
+    <meta name="theme-color" content="#1f4e79">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Опцион">
+    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+    <link rel="manifest" href="manifest.json">
+    <!--- конец PWA meta --->
+
+    <title>Управление опционом | Отчёты за день и период</title>
+    <!-- Остальные стили и скрипты (Chart.js, html2canvas) без изменений -->
+    ...
+</head>
+<body>
+    <!-- весь ваш контент -->
+    ...
+    <!-- В конце body, перед закрывающим тегом -->
+    <script>
+        // Регистрация Service Worker
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('sw.js')
+                    .then(reg => console.log('SW registered', reg.scope))
+                    .catch(err => console.error('SW registration failed', err));
+            });
+        }
+    </script>
+    <!-- ваш оригинальный JS-код -->
+</body>
+</html>
